@@ -2,11 +2,9 @@ name: sese-engine-docker-push
 
 on:
   push:
-    branches: [ "slave" ]
-    tags:
-      - '*'
+    branches: [ slave ]
   pull_request:
-    branches: [ "slave" ]
+    branches: [ slave ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -21,6 +19,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.8
     - name: echo
       run: echo $GITHUB_REF_NAME
 
