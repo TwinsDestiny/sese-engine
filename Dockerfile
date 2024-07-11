@@ -21,18 +21,14 @@ RUN echo "sese:$(tr -dc A-Za-z0-9 < /dev/urandom | head -c 20)" | chpasswd
 RUN chown sese:sese /code
 
 USER sese
-
 COPY ./ /code
-COPY entrypoint.sh /entrypoint.sh
 RUN pip config set global.index-url https://mirror.sjtu.edu.cn/pypi/web/simple
 RUN pip install -r /code/requirements.txt
 
 USER root
-
 RUN apk del libffi-dev musl-dev linux-headers git
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /code/entrypoint.sh
 
 USER sese
-
 EXPOSE 4950
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/code/entrypoint.sh" ]
