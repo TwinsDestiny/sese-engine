@@ -3,8 +3,8 @@ reppy==0.4.14
 lxml==4.6.2
 pyyaml==5.2
 tldextract==3.1.2
-flask==2.0.2
-werkzeug==1.0.1
+flask
+werkzeug
 jieba==0.42.1
 tqdm==4.41.1
 waitress==2.0.0
