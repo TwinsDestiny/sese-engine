@@ -30,5 +30,5 @@ RUN apk del libffi-dev musl-dev linux-headers git
 RUN chmod +x /code/entrypoint.sh
 
 USER sese
-EXPOSE 4950
+EXPOSE 80 14950
 ENTRYPOINT [ "/code/entrypoint.sh" ]
