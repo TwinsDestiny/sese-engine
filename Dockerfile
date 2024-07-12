@@ -28,6 +28,7 @@ RUN pip install -r /code/requirements.txt
 USER root
 RUN apk del libffi-dev musl-dev linux-headers git
 RUN chmod +x /code/entrypoint.sh
+RUN chown -R sese:sese /code
 
 USER sese
 EXPOSE 80 14950
